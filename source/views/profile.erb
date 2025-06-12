@@ -1,0 +1,35 @@
+<div class="profile-container">   
+    <div class="profile-items">
+        <h1>Profil sida</h1>
+
+        <a href="/logout" class="logout-button">Logga ut</a>
+
+        <h2>Byt Lösenord</h2>
+        <form action="/change-password" method="POST">
+            <div class="form-group">
+                <label class="profile-label" for="current-password">Nuvarande Lösenord:</label>
+                <input class="profile" type="password" id="current-password" name="current_password" required>
+            </div>
+            <div class="form-group">
+                <label class="profile-label" for="new-password">Nytt lösenord:</label>
+                <input class="profile" type="password" id="new-password" name="new_password" required>
+            </div>
+            <div class="form-group">
+                <label class="profile-label" for="confirm-password">Bekräfta lösenord:</label>
+                <input class="profile" type="password" id="confirm-password" name="confirm_password" required>
+            </div>
+            <button class="profile-button"type="submit">Byt Lösenord</button>
+        </form>
+
+        <h2>Spelens Scoreboard</h2>
+        <ul id="scoreboard">
+            <% if @people_rated.empty? %>
+                <li>Inget resultat än.</li>
+            <% else %>
+                <% @people_rated.each do |person| %>
+                    <li><%= person["name"] %> - <strong>Rating:</strong> <%= person["avg_rating"] %></li>
+                <% end %>
+            <% end %>
+        </ul>
+    </div>
+</div>

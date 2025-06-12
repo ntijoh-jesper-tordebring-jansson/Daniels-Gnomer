@@ -1,0 +1,854 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-area: 
+  "he"
+  "bo"
+  "fo";
+  grid-template-columns: 100%;
+  grid-template-rows: 100px 1fr 60px;
+  background-color: white;
+  height: 100%;
+  background-image: url("/img/statics/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#main-page{
+  grid-area: "bo";
+  min-height: 100vh;
+}
+
+/*
+Game Stuff
+*/
+
+/* Container to center the game-design box */
+.game-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+
+/* Style for the game-design box */
+.game-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff; /* Background color for the box */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  text-align: center;
+}
+
+/* Style for images inside the game-design box */
+.game-design .img_game {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners on images */
+  margin-bottom: 20px;
+  border: 8px lightgreen ridge;
+  box-sizing: border-box;
+}
+
+/* Style for forms within the game-design box */
+.game-design form {
+  width: 100%;
+}
+
+/* Style for select and input elements in the form */
+.game-design select,
+.game-design input[type="text"],
+.game-design input[type="submit"] {
+  display: block;
+  width: calc(100% - 22px); /* Adjust for padding */
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+/* Style for submit button */
+.game-design input[type="submit"] {
+  background-color: lightskyblue; /* Background color */
+  color: #ffffff; /* Text color */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for radio buttons inside the form */
+.game-design input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Style for labels of radio buttons */
+.game-design label {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+
+/* 
+Header stuff
+*/
+
+.index-container {
+  display: flex;
+  align-items: center; /* Centrera objekt vertikalt */
+  justify-content: space-between; /* Placera objekten i varsin ände med utrymme emellan */
+  height: 70px;
+  background-color: lightgreen;
+  border: 7px double black;
+  margin-bottom: 20px;
+  padding: 0 20px; /* Lägg till padding för att ge utrymme mellan kanterna och innehållet */
+}
+
+.index-item, .index-item2, .index-item3 {
+  display: flex;
+  align-items: center; /* Centrera innehållet vertikalt */
+}
+
+.index-item2 {
+  justify-content: center; /* Centrera h1 horisontellt */
+  flex-grow: 1; /* Låter h1 ta upp så mycket utrymme som möjligt för att centreras */
+}
+
+.header-text {
+  font-size: 36px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: normal;
+}
+
+#header-link {
+  color: black;
+  text-decoration: underline;
+}
+
+#header-link:hover {
+  text-decoration: underline;
+  color: lightskyblue;
+  font-style: italic;
+}
+
+/*
+Index stuff
+*/
+
+.index-grid2x2 {
+  width: 100%; /* Ensure grid takes full width */
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: fill; /* Centers the grid */
+  gap: 50px; /* Adjusts space between boxes */
+}
+
+.index-grid2x2 > a {
+  display: flex;
+  flex-basis: calc(50% - 40px); /* Two columns with gap adjustment */
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Removes underline from links */
+  flex-grow: 1; /* Ensures the boxes take up space */
+  box-sizing: border-box;
+}
+
+.index-box {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  border-radius: 60px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
+
+.index-box:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.index-box h1 {
+  font-size: 24px; /* Adjust font size as needed */
+  color: #333; /* Text color */
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+Login and register stuff
+*/
+
+/* Container som centrerar boxen */
+#login-register-container {
+  position: absolute; /* Fäster containern på en fast position */
+  top: 50%; /* Positionerar containern vertikalt i mitten */
+  left: 50%; /* Positionerar containern horisontellt i mitten */
+  transform: translate(-50%, -50%); /* Flyttar containern så att dess mittpunkt är vid 50%, 50% */
+  display: flex;
+  flex-direction: column; /* Gör så att formulären och länkarna placeras vertikalt */
+  align-items: center; /* Centrerar innehållet horisontellt inom containern */
+  padding: 20px;
+  background-color: #fff; /* Vit bakgrundsfärg för boxen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skugga för att ge djup */
+  border-radius: 10px; /* Rundade hörn */
+  width: 100%;
+  max-width: 400px; /* Maximal bredd på boxen */
+}
+
+/* Stil för formulär och länkar */
+#login-register-container form {
+  width: 100%; /* Gör formulären fullbredd inom boxen */
+  margin-bottom: 20px; /* Avstånd mellan formulären och länkarna */
+}
+
+#login-register-container input[type="text"], #login-register-container input[type="password"] {
+  width: calc(100% - 22px); /* Gör att textinmatningsfälten fyller boxen minus padding och border */
+  padding: 10px;
+  margin-bottom: 10px; /* Avstånd mellan fälten */
+  border: 1px solid #ccc; /* Rand runt fälten */
+  border-radius: 5px; /* Rundade hörn på fälten */
+}
+
+#login-register-container input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: lightskyblue; /* Blå bakgrundsfärg för knappen */
+  color: white; /* Vit textfärg på knappen */
+  border: none; /* Ingen rand runt knappen */
+  border-radius: 5px; /* Rundade hörn på knappen */
+  font-size: 16px;
+  cursor: pointer; /* Visar en hand när man hovrar över knappen */
+}
+
+#login-register-container input[type="submit"]:hover {
+  background-color: lightskyblue; /* Mörkare blå färg när man hovrar över knappen */
+}
+
+#login-register-container a {
+  color: lightskyblue; /* Blå färg på länkar */
+  text-decoration: none; /* Ingen understrykning på länkar */
+}
+
+#login-register-container a:hover {
+  text-decoration: underline; /* Understrykning när man hovrar över länken */
+}
+
+
+/* 
+Footer stuff
+*/
+
+footer{
+  grid-area: "fo";
+  background-color: lightgreen;
+  height: 35px;
+  text-align: center;
+  border-top: 4px solid black;
+  margin-top: 25px;
+  padding-bottom: 15px;
+}
+
+/*
+  POPUP MANAGERS
+*/
+
+.notice {
+    background:rgba(100,100,100,0.1);
+    width:60vw;
+    padding:50px;
+    position:fixed;
+    font-size:4rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.flash {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-10%);
+  background-color: #f8f9fa;
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInOut 4s ease-in-out forwards;
+}
+
+.flash.success {
+  background-color: paleturquoise;
+  color: darkslategray;
+  border: 1px solid black;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+.img_game {
+  height: 200px;
+  width: auto;
+}
+
+/* Profile Container */
+
+.profile-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling för Logga ut-knappen */
+.logout-button {
+  position: absolute; /* Placera knappen relativt till profilsektionen */
+  top: 100px; /* Justera avståndet från toppen */
+  right: 15px; /* Justera avståndet från höger kant */
+  color: black; /* Färg på texten */
+  font-size: 32px; /* Storlek på texten */
+  text-decoration: none; /* Ta bort understrykning */
+  font-weight: bold; /* Fetstil för texten */
+  cursor: pointer; /* Visa en handpekare vid hovring */
+  transition: color 0.3s ease; /* Mjuk övergång för färgändring */
+  background-color: white;
+  padding: 10px;
+  border: black double 4px;
+}
+
+.logout-button:hover {
+  color: lightskyblue;
+  font-style: italic; /* Mörkare blå färg vid hovring */
+}
+
+.profile-items {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  max-width: 100%; /* Ensures it doesn't overflow on smaller screens */
+  text-align: center;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.profile-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.profile {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Button Styles */
+.profile-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+  background-color: #0056b3;
+}
+
+/* Scoreboard Styles */
+#scoreboard {
+  margin-top: 15px;
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  max-height: 200px; /* Adjust the height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling if content exceeds max height */
+  border: 1px solid #ddd; /* Optional: Adds a subtle border to the scoreboard box */
+  border-radius: 5px; /* Matches the border radius of the list items */
+}
+
+#scoreboard li {
+  background-color: #f9f9f9;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* 
+Manage sidan
+*/
+
+.manage-body {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: white;
+  margin-top: -20px;
+  margin-bottom: -25px;
+}
+
+/*
+  Database content
+*/
+
+.manage-db-empty-text {
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.manage-db-content {
+  width: 70%;
+}
+
+.manage-item {
+  margin-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  grid-area: "bo";
+}
+
+.manage-db-id {
+  font-size: 40px;
+  margin-right: 40px;
+  border-right: 1px solid black;
+  padding-right: 20px;
+}
+
+.manage-db-picture {    
+  width: 150px;
+  height: 150px;
+  margin-right: 40px;
+}
+
+.manage-db-name {
+  font-size: 40px;
+  border-left: 1px solid black;
+  padding-left: 20px;
+}
+
+/*
+  Manage Interface
+*/
+
+.manage-interface {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  position: fixed;
+  left: 70%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Horisontell centrering */
+}
+
+.manage-interface-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*
+  Submit form
+*/
+
+.manage-submit-form {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  border-radius: 60px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.wla{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.manage-submit-file-upload-button {
+  width: 160px;
+  font-size: 30px;
+  margin-top: 30px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.manage-submit-name-field {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 24px;
+  color: gray;
+  border-style: solid;
+  border: 1px solid black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  border-radius: 10px;
+}
+
+.manage-submit-person-button {
+  margin-bottom: 50px;
+  font-size: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+  background-color: white;
+  border-style: solid;
+  border: 1px solid black;
+  border-radius: 40px;
+}
+
+/*
+  Delete person
+*/
+
+.manage-delete-form {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  border-radius: 60px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.manage-delete-number-field {
+  width: 160px;
+  font-size: 30px;
+  margin-top: 50px;
+
+  color: gray;
+  border-style: solid;
+  border: 1px solid black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  border-radius: 10px;
+}
+
+.manage-delete-form-spacer {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.manage-delete-person-button {
+  margin-bottom: 50px;
+  font-size: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: white;
+  border-style: solid;
+  border: 1px solid black;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+/*
+  Ladda in klassen
+*/
+
+.manage-default-people {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  border-radius: 60px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.manage-default-people-link-new {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.manage-default-people-button {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-style: solid;
+  border: 1px solid black;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+/*
+  Radera alla
+*/
+
+.manage-delete-all-people-link {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.manage-delete-all-people-button {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 18px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  border-style: solid;
+  border: 1px solid black;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+/*
+  Spacer
+*/
+
+.manage-spacer {
+  height: 100px;
+}
+
+
+  /*Smaller size screen*/
+
+
+  @media screen and (max-width: 1500px) {
+
+      
+      .manage-submit-form {
+          box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+          border-radius: 60px;
+          width: 300px;
+          height: 265px;
+          margin-top: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+      
+      .manage-submit-file-upload-button {
+          width: 80px;
+          font-size: 10px;
+          margin-top: 0px;
+          padding: 0px;
+          cursor: pointer;
+      }
+      
+      .manage-submit-name-field {
+          margin-top: auto;
+          margin-bottom: auto;
+          font-size: 18px;
+          color: gray;
+          border-style: solid;
+          border: 1px solid black;
+          padding-top: 6px;
+          padding-bottom: 8px;
+          padding-left: 8px;
+          border-radius: 10px;
+      }
+      
+      .manage-submit-person-button {
+          margin-bottom: 50px;
+          font-size: 18px;
+          padding-left: 40px;
+          padding-right: 40px;
+          padding-top: 10px;
+          padding-bottom: 12px;
+          cursor: pointer;
+          background-color: white;
+          border-style: solid;
+          border: 1px solid black;
+          border-radius: 40px;
+      }
+      
+      /*
+          Delete person
+      */
+      
+      .manage-delete-form {
+          box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+          border-radius: 60px;
+          width: 300px;
+          height: 180px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+      
+      .manage-delete-number-field {
+          width: 80px;
+          font-size: 30px;
+          margin-top: 20px;
+      
+          color: gray;
+          border-style: solid;
+          border: 1px solid black;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          padding-left: 8px;
+          border-radius: 10px;
+      }
+      
+      .manage-delete-form-spacer {
+          margin-top: auto;
+          margin-bottom: auto;
+      }
+      
+      .manage-delete-person-button {
+          margin-bottom: 50px;
+          font-size: 18px;
+          padding-left: 40px;
+          padding-right: 40px;
+          padding-top: 12px;
+          padding-bottom: 12px;
+          background-color: white;
+          border-style: solid;
+          border: 1px solid black;
+          border-radius: 40px;
+          cursor: pointer;
+      }
+      
+      /*
+          Ladda in klassen
+      */
+      
+      .manage-default-people {
+          box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+          border-radius: 60px;
+          width: 300px;
+          height: 180px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+      
+      .manage-default-people-link-new {
+          margin-top: auto;
+          margin-bottom: auto;
+      }
+      
+      .manage-default-people-button {
+          margin-top: auto;
+          margin-bottom: auto;
+          font-size: 14px;
+          padding-left: 40px;
+          padding-right: 40px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          background-color: white;
+          border-style: solid;
+          border: 1px solid black;
+          border-radius: 40px;
+          cursor: pointer;
+      }
+      
+      /*
+          Radera alla
+      */
+      
+      .manage-delete-all-people-link {
+          margin-top: auto;
+          margin-bottom: auto;
+      }
+      
+      .manage-delete-all-people-button {
+          margin-top: auto;
+          margin-bottom: auto;
+          font-size: 14px;
+          padding-left: 40px;
+          padding-right: 40px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          background-color: white;
+          border-style: solid;
+          border: 1px solid black;
+          border-radius: 40px;
+          cursor: pointer;
+      }
+      .manage-spacer {
+          height: 30px;
+      }
+}
+
+
+.question-mark-container{
+  margin-top: 20px;
+}
+
+.hover-text {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 1;
+}
+
+/* Show the text when hovering over the question mark */
+.question-mark-container:hover .hover-text {
+  display: block;
+}
+
+.info-image{
+  height: 20px;
+  width: 20px;
+}

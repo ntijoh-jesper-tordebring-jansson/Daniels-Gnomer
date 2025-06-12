@@ -1,0 +1,40 @@
+<% if flash[:success] %>
+    <div class="flash success">
+        <%= flash[:success]%>
+    </div>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="flash notice">
+        <%= flash[:notice]%>
+    </div>
+<% end %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+    <div class="index-container">
+        <div class="index-item">
+            <a href="/" class="header-text" id="header-link">Hem</a>
+        </div>
+        <div class="index-item2">
+            <h1 class="header-text">Daniels Gnomer</h1>
+        </div>
+        <div class="index-item3">
+            <a href="/profile" class="header-text" id="header-link">Profil</a>
+        </div>
+    </div>
+    <div id="main-page">
+        <%=yield%>
+    </div>
+    <footer>
+        <p>Skapat av Udén, Linus, Hannah och Jesper</p>
+    </footer>
+</body>
+</html>

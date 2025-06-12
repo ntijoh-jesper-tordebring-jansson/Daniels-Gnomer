@@ -1,0 +1,55 @@
+<div class="game-container">
+    <div class="game-design">
+        <% if @game_id == "1" || @game_id == "2" || @game_id == "3" %>
+            <% sample = @people_db.sample %>
+            <% random_image = sample["filepath"] %>
+
+            <div class="game-more-design">
+                <img src="<%= random_image %>" alt="Bild" class="img_game">
+            <% end %>
+
+            <% if @game_id == "1" %>
+                <form method="post" action = "/game">
+                    <input type="hidden" name="game_id" value="1"> 
+                    <input type="hidden" name="img_id" value="<%= sample["id"] %>">
+                    <select name="answer" required> 
+                        <option disabled selected value> -- Välj ett namn -- </option>
+                        <% @people_db.each do |people| %>
+                            <option value="<%= people["name"] %>"><%= people["name"] %></option>
+                        <% end %> 
+                    </select>
+                    <input type="submit" value="Rätta">
+                </form>
+            <% elsif @game_id == "2" %>
+                <form method="post" action = "/game"> 
+                    <input type="hidden" name="game_id" value="2">
+                    <input type="hidden" name="img_id" value="<%= sample["id"] %>">
+                    <input type="text" name="answer">
+                    <input type="submit" value="Rätta">
+                </form>
+            <% elsif @game_id == "3" %>
+                <% random_name = sample["name"] %>
+                <% names = [] %>
+                <% @people_db.each do |person| %>
+                    <% names << person["name"] %>
+                <% end %>
+
+                <% wrong_names = names.reject { |name| name == random_name }.sample(3) %>
+                <% all_options = [random_name, *wrong_names].shuffle %>
+
+                <form method="post" action = "/game">
+                    <input type="hidden" name="game_id" value="3">
+                    <input type="hidden" name="img_id" value="<%= sample["id"] %>">
+                    <% all_options.each do |name| %>
+                        <input type="radio" id="svar_<%= name %>" name="answer" value="<%= name %>">
+                        <label for="svar_<%= name %>"><%= name %></label><br>
+                    <% end %>
+                    <input type="submit" value="Rätta">
+                </form>
+            <% else %>
+                <h2>Spelet hittades inte</h2>
+                <a href="/">Gå tillbaka</a>
+            <% end %>
+        </div>
+    </div>
+</div>

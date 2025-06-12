@@ -1,0 +1,80 @@
+<div class="manage-body">
+    <div class="manage-db-content">
+        <% if @db_content == "empty" %>
+            <p class="manage-db-empty-text">
+                Databasen är tom :(
+            </p>
+        <% else %>
+            <% @db_content.each do |f| %>
+                <div class="manage-item">
+                    <div class="manage-db-id">
+                        <p><%= f["id"] %></p>
+                    </div>
+                    <div class="manage-db-picture">
+                        <img class="manage-db-picture" src="<%= f["filepath"] %>">
+                    </div>
+                    <div class="manage-db-name">
+                        <p><%= f["name"] %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="manage-interface">
+        <div class="manage-interface-container">
+
+            <!-- Add Person Form -->
+            <div class="manage-form-container">
+                <div class="manage-submit-form">
+                    <div class="question-mark-container">
+                        <span class="question-mark"><img src="/img/statics/info.png" class="info-image"></span>
+                        <span class="hover-text">This form allows you to add a new person to the database.</span>
+                    </div>
+                    <form class="wla" action="/manage/upload" method="post" enctype="multipart/form-data">
+                        <input class="manage-submit-file-upload-button" type="file" name="zip_file" id="zip_file" accept=".zip">
+                        <button class="manage-submit-person-button" type="submit">Ladda upp</button>
+                    </form>
+                    <form class="wla" method="POST" action="/manage/add-person" enctype="multipart/form-data">
+                        <input class="manage-submit-file-upload-button" type="file" id="fileupload" name="fileupload">
+                        <input class="manage-submit-name-field" type="text" id="name" name="name" placeholder="Namn: ">
+                        <input class="manage-submit-person-button" type="submit" value="Lägg till">
+                    </form>
+                </div>
+            </div>
+
+            <div class="manage-spacer"></div>
+
+            <!-- Remove Person Form -->
+            <div class="manage-form-container">
+                <form class="manage-delete-form" method="POST" action="/manage/remove-person">
+                    <div class="question-mark-container">
+                    <span class="question-mark"><img src="/img/statics/info.png" class="info-image"></span>
+                    <span class="hover-text">These buttons allow you to load a default list of people or delete all people from the database.</span>
+                    </div>
+                    <input class="manage-delete-number-field" type="number" id="number" name="number">
+                    <div class="manage-delete-form-spacer"></div>
+                    <input class="manage-delete-person-button" type="submit" value="Ta bort">
+                </form>
+            </div>
+
+            <div class="manage-spacer"></div>
+
+            <!-- Load/Remove Default People -->
+            <div class="manage-form-container">
+                <div class="manage-default-people">
+                    <div class="question-mark-container">
+                    <span class="question-mark"><img src="/img/statics/info.png" class="info-image"></span>
+                    <span class="hover-text">This is the text that shows up on hover.</span>
+                    </div>
+                    <a class="manage-default-people-link-new" href="/manager/default">
+                        <button class="manage-default-people-button">Ladda in klassen</button>
+                    </a>
+                    <a class="manage-delete-all-people-link" href="/manager/delete-all">
+                        <button class="manage-delete-all-people-button">Radera alla i listan</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
